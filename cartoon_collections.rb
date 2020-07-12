@@ -26,8 +26,9 @@ end
 
 
 def find_the_cheese(cheeses)
+    i = 0
   cheese_types = ["cheddar", "gouda", "camembert"]
-  i = 0
+
   while i < cheeses.length
     i +=1
     if cheeses.include?(cheese_types)
@@ -36,4 +37,19 @@ def find_the_cheese(cheeses)
       return nil
     end 
   end 
+end
+
+def my_all?(collection)
+  i = 0
+  block_return_values = []
+  while i < collection.length
+    block_return_values << yield(collection[i])
+    i = i + 1
+  end
+ 
+  if block_return_values.include?(false)
+    false
+  else
+    true
+  end
 end
